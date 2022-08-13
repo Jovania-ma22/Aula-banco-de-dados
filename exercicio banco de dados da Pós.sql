@@ -56,3 +56,62 @@ insert into CARGO (descricao,valor)
 value ('Analista','20.000');
 select*from cargo
 
+create table funcionario (
+idFuncionario int not null auto_increment primary key,
+idPlanta int not null,
+idDepartamento int not null,
+idCargo int not null,
+chapa varchar(10) not null unique,
+nome varchar(60) not null,
+foreign key (idDepartamento) references departamento(idDepartamento),
+foreign key (idPlanta) references planta(idPlanta),
+foreign key (idCargo) references cargo (idCargo)
+);
+
+insert into funcionario value
+(null,1,1,1,'5351', 'Jurema');
+
+select * from funcionario;
+
+
+alter table funcionario
+add column valorHora decimal(10,2) not null;
+
+alter table funcionario
+add column valorMae varchar(60) not null;
+
+select * from funcionario;
+
+alter table funcionario;
+
+
+update funcionario set valorHora = 6.5
+where idFuncionario=1;
+
+ alter table funcionario
+ drop column valorMae;
+ select * from funcionario;
+ 
+ create table dependente(
+ idDependente int not null auto_increment primary key,
+ idFuncionario int not null,
+ nome varchar(60) not null,
+ foreign key(idFuncionario) references funcionario (idFuncionario) 
+ );
+ rename table dependente to dependente;
+ 
+ alter table funcionario
+ add column idJornada int,
+ add constraint foreign key (idJornada) references jornada(idJornada);
+ 
+ create table registroPonto( 
+ idRegistroPonto int not null auto_increment primary key,
+ idFuncionario int not null,
+ dataHora datetime not null default now(),
+ abonado boolean not null default 0,
+ foreign key (idFuncionario) references funcionario(idFuncionario)
+ 
+ );
+ drop table registroPonto;
+ 
+
