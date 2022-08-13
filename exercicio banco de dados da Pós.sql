@@ -56,6 +56,9 @@ insert into CARGO (descricao,valor)
 value ('Analista','20.000');
 select*from cargo
 
+
+Continuação da aula sábado 13/08/2022
+
 create table funcionario (
 idFuncionario int not null auto_increment primary key,
 idPlanta int not null,
