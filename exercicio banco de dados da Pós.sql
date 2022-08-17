@@ -118,6 +118,64 @@ insert into Idade(menor,idade)
  foreign key (idFuncionario) references funcionario(idFuncionario)
  
  );
- drop table registroPonto;
+ insert into funcionario value
+ (null,1,1,1,'5351', 'Funcionario1');
+ select * from funcionario;
+
+
+ alter table funcionario
+ add column valorHora decimal(10,2) not null;
+
+alter table funcionario
+add column valorMae varchar(60) not null;
+ select * from funcionario;
+
+ alter table funcionario;
+
+
+ update funcionario set valorHora = 6.5
+ where idFuncionario=1;
+
+  alter table funcionario
+  drop column valorMae;
+  select * from funcionario;
+ 
+  CREATE TABLE `jornadahorario` (
+   idJornadaHorario` int NOT NULL AUTO_INCREMENT,
+   idJornada` int NOT NULL,
+   idHorario` int NOT NULL,
+   dia` enum('1','2','3','4','5','6','7') NOT NULL,
+   PRIMARY KEY (`idJornadaHorario`),
+   KEY `idJornada` (`idJornada`),
+   KEY `idHorario` (`idHorario`),
+   CONSTRAINT `jornadahorario_ibfk_1` FOREIGN KEY (`idJornada`) REFERENCES `jornada` (`idJornada`),
+   CONSTRAINT `jornadahorario_ibfk_2` FOREIGN KEY (`idHorario`) REFERENCES `horario` (`idHorario`)
+ ); 
+ DELIMITER $
+
+-- CREATE FUNCTION criaChapaFuncionario()
+-- RETURNS VARCHAR(6)
+
+-- BEGIN
+	-- DECLARE chapa_parte1 varchar(4);
+	-- 	DECLARE qtdFuncMes int;
+		-- 	DECLARE qtdFuncMesformadato varchar(3);
+
+-- SET chapa_parte1 = date_format(now(), '%y%m');
+		-- SET quantidadeFuncionarioMes = 
+		-- 	(select count(*)+1 from funcionario 
+				-- where dt_admissao between 
+					-- date_format(now(), '%Y-%m-01') and last_day(now()));
+	
+			-- set quantidadeMesFormatado =  LPAD(quantidadeFuncionarioMes,3,0);
+    
+		-- return concat(chapa_parte1,quantidadeFuncionarioMes);
+
+-- END$
+
+
+-- DELIMITER ;--
+ 
+ 
  
 
