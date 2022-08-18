@@ -101,11 +101,7 @@ where idFuncionario=1;
  nome varchar(60) not null,
  foreign key(idFuncionario) references funcionario (idFuncionario) 
  );
-alter table dependente
-add column idIdade int not null auto_increment;
-insert into Idade(menor,idade)
- value('menor','18');
- 
+
  alter table funcionario
  add column idJornada int,
  add constraint foreign key (idJornada) references jornada(idJornada);
