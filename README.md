@@ -1,2 +1,3 @@
-# Aula-banco-de-dados
-exercicio
+# BD01_PSI_e_PSII
+
+PROJETO DE SISTEMAS
